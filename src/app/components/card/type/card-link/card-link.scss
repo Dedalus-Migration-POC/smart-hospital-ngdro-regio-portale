@@ -1,0 +1,16 @@
+@use "variables" as *;
+
+a.card-link {
+  --#{$prefix}link-color: #16395e;
+  text-decoration: none;
+
+  h3.card-login-service-title {
+    //  color: #16395e;
+    margin-bottom: 0;
+    font-size: 1.75rem !important;
+  }
+
+  p.card-login-service-description {
+    color: #2f475e;
+  }
+}

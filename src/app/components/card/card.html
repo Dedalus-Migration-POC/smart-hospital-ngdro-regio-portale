@@ -1,0 +1,42 @@
+<div [ngClass]="cardContainer?.styleClassContainer">
+  <ng-container *ngIf="cardContainer">
+    <h2
+      class="title mb-0 fw-normal fw-bold"
+      [ngClass]="cardContainer.styleClassTitle"
+    >
+      {{ cardContainer.title | translate }}
+    </h2>
+    <p
+      class="description fw-normal mb-0"
+      [ngClass]="cardContainer.styleClassDescription"
+    >
+      {{ cardContainer.description | translate }}
+    </p>
+  </ng-container>
+
+  <ul
+    *ngIf="cardContent.length"
+    [attr.aria-label]="
+      cardContainer ? (cardContainer.ariaLabelList | translate) : null
+    "
+    role="list"
+    class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal ps-0 mb-0"
+  >
+    <ng-container *ngFor="let card of cardContent">
+      <li
+        class="card card-teaser no-after border mb-0"
+        [ngClass]="card.styleClassCard"
+        role="listitem"
+      >
+        <ng-container [ngSwitch]="card.type">
+          <ng-container *ngSwitchCase="'link'">
+            <app-card-link [card]="card"></app-card-link>
+          </ng-container>
+          <ng-container *ngSwitchCase="'image'">
+            <app-card-image [card]="card"></app-card-image>
+          </ng-container>
+        </ng-container>
+      </li>
+    </ng-container>
+  </ul>
+</div>

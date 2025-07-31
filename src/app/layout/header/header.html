@@ -1,0 +1,174 @@
+<!-- TODO verifica aria-current="page" per il menu attivo -->
+<!-- TODO settare le classi del cursor -->
+<header class="it-header-wrapper">
+  <div class="it-header-slim-wrapper">
+    <div class="container-xxl">
+      <div class="row">
+        <div class="col-12">
+          <div class="it-header-slim-wrapper-content">
+            <a
+              class="d-none d-lg-block navbar-brand"
+              href="#"
+              [attr.aria-label]="'common.entity' | translate"
+              >{{ "common.entity" | translate }}</a
+            >
+            <div class="it-header-slim-right-zone">
+              <div class="it-access-top-wrapper">
+                <a
+                  class="btn btn-personal-area bg-transparent"
+                  href="#"
+                  [attr.aria-label]="'header.personal-area' | translate"
+                >
+                  <img
+                    src="assets/images/personal-area.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  {{ "header.personal-area" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="it-nav-wrapper">
+    <div class="it-header-center-wrapper">
+      <div class="container-xxl">
+        <div class="row">
+          <div class="col-12">
+            <div class="it-header-center-content-wrapper">
+              <div class="it-brand-wrapper">
+                <a href="#">
+                  <img
+                    src="assets/images/logos/header-logo-regio.svg"
+                    class="me-3"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <div class="it-brand-text">
+                    <div class="it-brand-title">
+                      {{ "header.logo-regio" | translate }}
+                    </div>
+                    <div class="it-brand-tagline d-none d-md-block">
+                      {{ "header.logo-regio-subtitle" | translate }}
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="it-right-zone">
+                <div class="it-socials d-none d-md-flex">
+                  <span class="me-3">{{
+                    "common.social.follow-us" | translate
+                  }}</span>
+                  <ul>
+                    <li *ngFor="let item of socialLinks" class="me-3">
+                      <a
+                        [href]="item.link"
+                        [ngClass]="item.styleClass"
+                        [attr.aria-label]="item.labelI18n | translate"
+                      >
+                        <ng-container *ngIf="item.image; else text">
+                          <img [src]="item.image" alt="" aria-hidden="true" />
+                        </ng-container>
+                        <ng-template #text>
+                          {{ item.labelI18n | translate }}
+                        </ng-template>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="it-search-wrapper">
+                  <span class="d-none d-md-block me-2">
+                    {{ "header.search.search" | translate }}</span
+                  >
+                  <a
+                    class="search-link rounded-icon"
+                    [attr.aria-label]="'header.search.search' | translate"
+                    href="#"
+                  >
+                    <img
+                      src="assets/images/search.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="it-header-navbar-wrapper">
+      <div class="container-xxl">
+        <div class="row">
+          <div class="col-12">
+            <nav
+              class="navbar navbar-expand-lg has-megamenu"
+              [attr.aria-label]="'header.menu.main-navigation' | translate"
+            >
+              <button
+                class="custom-navbar-toggler"
+                type="button"
+                aria-controls="navC1"
+                [attr.aria-label]="'header.menu.navbar-toggler' | translate"
+                data-bs-toggle="navbarcollapsible"
+                data-bs-target="#navC1"
+              >
+                <img src="assets/images/burger.svg" alt="" aria-hidden="true" />
+              </button>
+              <div class="navbar-collapsable" id="navC1" tabindex="-1">
+                <div class="close-div">
+                  <button class="btn close-menu" type="button">
+                    <span class="visually-hidden">{{
+                      "header.menu.hidden-navigation" | translate
+                    }}</span>
+
+                    <img
+                      src="assets/images/close-big.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+                <div class="menu-wrapper">
+                  <ul class="navbar-nav">
+                    <li
+                      class="nav-item"
+                      *ngFor="let item of menu"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                      <a
+                        class="nav-link fw-semibold"
+                        [routerLink]="item.link"
+                        [attr.aria-current]="
+                          router.isActive(item.link, true) ? 'page' : null
+                        "
+                        ><span>{{ item.labelI18n | translate }}</span></a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-container-support d-flex align-items-center">
+    <div class="container-xxl">
+      <div class="row">
+        <div class="col-12">
+          <div class="container-text-support">
+            <small [innerHTML]="'header.support' | translate"></small>
+            <img src="assets/images/phone.svg" alt="" aria-hidden="true" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

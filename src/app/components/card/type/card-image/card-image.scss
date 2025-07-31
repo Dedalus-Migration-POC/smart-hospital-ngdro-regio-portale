@@ -1,0 +1,18 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+a.card-link {
+  --#{$prefix}link-color: #16395e;
+  text-decoration: none;
+
+  .card-regional-service-title {
+    font-size: 1.3rem !important;
+    font-weight: 600;
+    line-height: 2rem;
+  }
+
+  p.card-regional-service-description {
+    color: #2f475e;
+  }
+}
+// p-0 mt-4

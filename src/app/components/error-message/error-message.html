@@ -1,0 +1,13 @@
+<div class="error-message" role="alert">
+  <p class="mb-0">{{ message | translate }}</p>
+
+  <button
+    *ngIf="showRetry"
+    type="button"
+    class="btn btn-sm btn-secondary"
+    [attr.aria-label]="'common.retry' | translate"
+    (click)="onRetry()"
+  >
+    {{ "common.retry" | translate }}
+  </button>
+</div>

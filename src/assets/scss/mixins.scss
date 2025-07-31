@@ -1,0 +1,25 @@
+@use "bootstrap-italia/src/scss/bootstrap-italia" as bi;
+
+@mixin breakpoint-up($breakpoint) {
+  @include bi.media-breakpoint-up($breakpoint) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($breakpoint) {
+  @include bi.media-breakpoint-down($breakpoint) {
+    @content;
+  }
+}
+
+@mixin breakpoint-only($breakpoint) {
+  @include bi.media-breakpoint-only($breakpoint) {
+    @content;
+  }
+}
+
+@mixin breakpoint-between($lower, $upper) {
+  @include bi.media-breakpoint-between($lower, $upper) {
+    @content;
+  }
+}

@@ -1,0 +1,58 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.it-header-wrapper {
+  .it-header-slim-wrapper {
+    .it-header-slim-right-zone {
+      .btn-personal-area {
+        font-style: normal;
+
+        &:active {
+          color: #fff;
+        }
+
+        img {
+          margin-right: 0.625rem;
+        }
+      }
+    }
+  }
+
+  .it-header-center-wrapper {
+    .it-header-center-content-wrapper {
+      .it-brand-title {
+        @include breakpoint-up(lg) {
+          font-size: 2rem;
+        }
+      }
+      .it-brand-tagline {
+        @include breakpoint-up(lg) {
+          font-size: 1rem;
+        }
+      }
+
+      .it-socials span {
+        @include breakpoint-up(lg) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .it-header-navbar-wrapper {
+    .nav-link {
+      @include breakpoint-up(lg) {
+        padding: 13px 16px !important;
+      }
+    }
+  }
+
+  .header-container-support {
+    height: 3rem;
+    background-color: #f3f7fc;
+
+    .container-text-support {
+      padding: 0 0.5rem 0 1.125rem;
+    }
+  }
+}

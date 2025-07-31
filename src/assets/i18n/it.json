@@ -1,0 +1,78 @@
+{
+  "common": {
+    "entity": "Regione Emilia Romagna",
+    "social": {
+      "follow-us": "Seguici su",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter"
+    },
+    "loading": "Caricamento",
+    "error-loading": "Errore: impossibile caricare i dati. Riprova più tardi.",
+    "retry": "Riprovare"
+  },
+  "header": {
+    "personal-area": "Accedi all'area personale",
+    "logo-regio": "RegioPortale",
+    "logo-regio-subtitle": "Tutto il tuo lavoro, in un'unica porta d'accesso",
+    "search": {
+      "search": "Cerca",
+      "search-aria": "Cerca nel sito"
+    },
+    "menu": {
+      "main-navigation": "Navigazione principale",
+      "navbar-toggler": "Mostra/Nascondi la navigazione",
+      "hidden-navigation": "Nascondi la navigazione",
+      "home": "Home page",
+      "faq": "FAQ",
+      "support": "Supporto"
+    },
+    "support": "Richiedi informazioni o fai una segnalazione <b>Assistenza <a href=\"#\">800 1234567</a></b> "
+  },
+  "home": {
+    "doctors-consultancy-computers": {
+      "single-portal": "Portale Unico Accesso Operatore",
+      "welcome": "Benvenuto in ER-PSP",
+      "access-portal": "Accedi a Portale Prevenzione Salute: un unico accesso per tutti i servizi digitali,<br> pensati per semplificare la salute e la sicurezza.",
+      "login": "Login con IDP Regionale",
+      "doctors-consultancy-computers": "Due professionisti, un medico e un consulente, collaborano davanti a un computer in un ambiente di ufficio"
+    },
+    "login-service": {
+      "title": "Come funziona",
+      "subtitle": "Dal login all'uso dei servizi, senza interruzioni",
+      "service": "Lista dei servizi per la login",
+      "empty": "Al momento non ci sono servizi disponibili. Riprova più tardi o contatta l'assistenza."
+    },
+    "regional-services": {
+      "title": "Tutto per te",
+      "subtitle": "Scopri i tuoi servizi regionali",
+      "service": "Lista dei servizi regionali",
+      "empty": "Al momento non ci sono servizi disponibili. Riprova più tardi o contatta l'assistenza."
+    },
+    "single-space": {
+      "title": "Scopri i tuoi servizi in un unico spazio",
+      "description": "Accedi al ER-PSP Portale Prevenzione Salute e visualizza la tua dashboard già profilata, con tutti i servizi digitali <br>regionali di cui hai bisogno. Un accesso sicuro, un'interfaccia chiara e strumenti pensati per semplificare il tuo lavoro.",
+      "to-operate": "Collegati ora e scopri come operare"
+    }
+  },
+  "footer": {
+    "contacts": {
+      "contacts": "Contatti",
+      "region": "Regione Emilia-Romagna",
+      "address": "Viale Aldo Moro, 52",
+      "cap-city": "40127 Bologna",
+      "switchboard": "Centralino",
+      "search-phones-or-addresses": "Cerca telefoni o indirizzi",
+      "send-suggestions-task-force": "Invia suggerimenti - Task Force"
+    },
+    "collaboration": {
+      "collaboration": "In collaborazione con",
+      "dedalus": "Dedalus. Vai al sito"
+    },
+    "small-print": {
+      "privacy": "Privacy Policy",
+      "disclosure": "Informativa privacy",
+      "site-map": "Mappa del sito"
+    }
+  }
+}

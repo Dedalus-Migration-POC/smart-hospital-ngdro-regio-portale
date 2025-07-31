@@ -1,0 +1,116 @@
+<!-- <div class="container"> -->
+<div class="container-doctors-consultancy-computers position-relative">
+  <img
+    src="assets/images/medici-consulenza-computer.png"
+    class="w-100"
+    [attr.alt]="
+      'home.doctors-consultancy-computers.doctors-consultancy-computers'
+        | translate
+    "
+  />
+  <div
+    class="doctors-consultancy-computers-info text-white d-flex align-items-center flex-column"
+  >
+    <p class="mb-2">
+      {{ "home.doctors-consultancy-computers.single-portal" | translate }}
+    </p>
+    <h1 class="h2 mb-3">
+      {{ "home.doctors-consultancy-computers.welcome" | translate }}
+    </h1>
+    <p
+      class="text-center mb-0"
+      [innerHtml]="
+        'home.doctors-consultancy-computers.access-portal' | translate
+      "
+    ></p>
+
+    <button type="button" class="btn btn-login">
+      {{ "home.doctors-consultancy-computers.login" | translate }}
+    </button>
+  </div>
+</div>
+
+<ng-container *ngIf="loginService() as loginService">
+  <div class="container">
+    <ng-container *ngIf="loginService.loading; else notLoading">
+      <app-spinner [message]="'common.loading' | translate"></app-spinner>
+    </ng-container>
+
+    <ng-template #notLoading>
+      <ng-container *ngIf="loginService.error; else showData">
+        <!-- TODO da testare -->
+        <app-error-message
+          [message]="'common.error-loading' | translate"
+          [showRetry]="true"
+          (retry)="onRetryLogin()"
+        ></app-error-message>
+      </ng-container>
+
+      <ng-template #showData>
+        <ng-container *ngIf="loginService.data.length > 0; else noData">
+          <app-card
+            [cardContainer]="cardLinkLoginServicesContainer"
+            [cardContent]="cardLinksLoginServices()"
+          >
+          </app-card>
+        </ng-container>
+        <ng-template #noData>
+          <!-- TODO da testare -->
+          <p class="mb-0">{{ "home.login-service.empty" }}</p>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="regionalService() as regionalService">
+  <div class="container-regional-service-bg">
+    <ng-container *ngIf="regionalService.loading; else notLoading">
+      <app-spinner [message]="'common.loading' | translate"></app-spinner>
+    </ng-container>
+
+    <ng-template #notLoading>
+      <ng-container *ngIf="regionalService.error; else showData">
+        <!-- TODO da testare -->
+        <app-error-message
+          [message]="'common.error-loading' | translate"
+          [showRetry]="true"
+          (retry)="onRetryLogin()"
+        ></app-error-message>
+      </ng-container>
+
+      <ng-template #showData>
+        <ng-container *ngIf="regionalService.data.length > 0; else noData">
+          <app-card
+            [cardContainer]="cardImageRegionalServicesContainer"
+            [cardContent]="cardImageRegionalServices()"
+          >
+          </app-card>
+        </ng-container>
+        <ng-template #noData>
+          <!-- TODO da testare -->
+          <p class="mb-0">{{ "home.login-service.empty" }}</p>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+  </div>
+</ng-container>
+
+<!-- manca lo sfondo-->
+<div class="container-single-space position-relative">
+  <img src="" class="w-100" alt="" aria-hidden="true" />
+  <div class="single-space-info d-flex align-items-center flex-column">
+    <h2 class="mb-3">
+      {{ "home.single-space.title" | translate }}
+    </h2>
+    <p
+      class="text-center mb-0"
+      [innerHtml]="'home.single-space.description' | translate"
+    ></p>
+
+    <button type="button" class="btn btn-to-operate">
+      {{ "home.single-space.to-operate" | translate }}
+    </button>
+  </div>
+</div>
+<!-- </div> -->

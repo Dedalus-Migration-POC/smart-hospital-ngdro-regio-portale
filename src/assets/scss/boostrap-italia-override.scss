@@ -1,0 +1,20 @@
+// Prefix for :root CSS variables
+$prefix: bs- !default;
+
+// PRIMARY COLORS DEFINITION //
+$primary: #16395e !default;
+
+// Body
+$body-color: #1a1a1a !default;
+
+// ##### HEADER #####
+
+// Header Slim
+$header-slim-bg-color: #12253e !default;
+
+// Header Center
+$header-center-bg-color: #16395e !default;
+
+// ##### FOOTER #####
+$footer-top-background: #0b1828;
+$footer-bottom-background: $footer-top-background !default;

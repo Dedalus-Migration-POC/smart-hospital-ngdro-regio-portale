@@ -1,0 +1,49 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.container-doctors-consultancy-computers {
+  img {
+    height: 415px;
+  }
+
+  .doctors-consultancy-computers-info {
+    background: rgba(23, 50, 81, 0.7);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 6rem 2.5rem;
+
+    .btn-login {
+      --#{$prefix}btn-bg: #fff;
+      --#{$prefix}btn-color: #06c;
+      --#{$prefix}btn-active-bg: #cce4f7;
+      --#{$prefix}btn-active-color: #06c;
+      --#{$prefix}btn-hover-bg: #e6f0fa;
+      --#{$prefix}btn-hover-color: #06c;
+
+      margin-top: 2rem;
+    }
+  }
+}
+
+.container-regional-service-bg {
+  background-color: #f3f7fc;
+}
+
+.container-single-space {
+  .single-space-info {
+    padding: 3.5rem 2.5rem;
+
+    .btn-to-operate {
+      --#{$prefix}btn-bg: #16395e;
+      --#{$prefix}btn-color: #fff;
+      --#{$prefix}btn-active-bg: #102c4c;
+      --#{$prefix}btn-active-color: #fff;
+      --#{$prefix}btn-hover-bg: #2d4e77;
+      --#{$prefix}btn-hover-color: #fff;
+
+      margin-top: 2.5rem;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "./boostrap-italia-override" as bo;
+@use "bootstrap-italia/src/scss/bootstrap-italia" as bi with (
+  $prefix: bo.$prefix,
+  $primary: bo.$primary,
+  $body-color: bo.$body-color,
+  $header-slim-bg-color: bo.$header-slim-bg-color,
+  $header-center-bg-color: bo.$header-center-bg-color,
+  $footer-top-background: bo.$footer-top-background,
+  $footer-bottom-background: bo.$footer-bottom-background
+);
+
+// re-export: to use out of context
+$prefix: bo.$prefix;

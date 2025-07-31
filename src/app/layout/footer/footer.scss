@@ -1,0 +1,43 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.it-footer {
+  .it-footer-main {
+    .section-brand {
+      .it-brand-wrapper {
+        padding: 2.5rem 0;
+
+        @include breakpoint-down(md) {
+          flex-direction: column !important;
+          gap: 2rem !important;
+        }
+      }
+    }
+
+    .section-info {
+      --#{$prefix}border-color: #173251;
+
+      padding-top: 2.5rem !important;
+      padding-bottom: 2.5rem !important;
+
+      & > div {
+        @include breakpoint-down(md) {
+          flex-direction: column !important;
+        }
+      }
+
+      h4 {
+        font-size: 1.125rem;
+        line-height: 1.5rem;
+      }
+
+      .social-link {
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  .it-footer-small-prints {
+    border-top: 1px solid #173251;
+  }
+}

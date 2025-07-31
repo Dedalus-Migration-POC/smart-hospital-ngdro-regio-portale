@@ -1,0 +1,17 @@
+<a [href]="card.href" class="card-link">
+  <div class="d-flex flex-column gap-3">
+    <div class="d-flex flex-row align-items-center">
+      <h3 [ngClass]="card.styleClassTitle">{{ card.title }}</h3>
+      <img
+        *ngIf="card.showArrow"
+        src="assets/images/arrow-right.svg"
+        class="ms-auto"
+        aria-hidden="true"
+        alt=""
+      />
+    </div>
+    <p class="mb-3" [ngClass]="card.styleClassDescription">
+      {{ card.description }}
+    </p>
+  </div>
+</a>
