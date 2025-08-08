@@ -55,6 +55,17 @@
       "to-operate": "Collegati ora e scopri come operare"
     }
   },
+  "dashboard": {
+    "regional-services-available": {
+      "title": "Servizi regionali disponibili",
+      "empty": "Al momento non ci sono servizi disponibili. Riprova più tardi o contatta l'assistenza."
+    },
+    "user-profile": {
+      "last-connection": "Ultimo collegamento",
+      "logoutAriaLabel": "Esci dall'account di {{name}}",
+      "logout": "Esci"
+    }
+  },
   "footer": {
     "contacts": {
       "contacts": "Contatti",

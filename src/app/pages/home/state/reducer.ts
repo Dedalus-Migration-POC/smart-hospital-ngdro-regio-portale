@@ -9,7 +9,7 @@ import {
 } from './actions';
 import { LoginService, RegionalService } from './models';
 
-export const featureKey = 'homeState';
+export const featureKey = 'home';
 
 export interface State {
   loginService: Array<LoginService>;

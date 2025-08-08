@@ -3,6 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MenuLink } from '../../models/menu.model';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../store/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -29,9 +30,19 @@ export class HeaderComponent {
     },
   ];
 
-  constructor(public router: Router) {}
+  constructor(
+    public router: Router,
+    private authService: AuthService,
+  ) {}
 
   get socialLinks(): MenuLink[] {
     return this.social()?.() ?? [];
+  }
+
+  login(event: MouseEvent) {
+    event.preventDefault();
+    const url = this.authService.auth();
+
+    window.location.href = url;
   }
 }

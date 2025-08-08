@@ -1,5 +1,6 @@
-<!-- <div class="container"> -->
-<div class="container-doctors-consultancy-computers position-relative">
+<!-- TODO VERIFICA BENE IL RESPONSIVE-->
+
+<section class="container-doctors-consultancy-computers position-relative">
   <img
     src="assets/images/medici-consulenza-computer.png"
     class="w-100"
@@ -28,10 +29,10 @@
       {{ "home.doctors-consultancy-computers.login" | translate }}
     </button>
   </div>
-</div>
+</section>
 
 <ng-container *ngIf="loginService() as loginService">
-  <div class="container">
+  <section class="container">
     <ng-container *ngIf="loginService.loading; else notLoading">
       <app-spinner [message]="'common.loading' | translate"></app-spinner>
     </ng-container>
@@ -60,11 +61,11 @@
         </ng-template>
       </ng-template>
     </ng-template>
-  </div>
+  </section>
 </ng-container>
 
 <ng-container *ngIf="regionalService() as regionalService">
-  <div class="container-regional-service-bg">
+  <section class="container-regional-service-bg">
     <ng-container *ngIf="regionalService.loading; else notLoading">
       <app-spinner [message]="'common.loading' | translate"></app-spinner>
     </ng-container>
@@ -93,12 +94,16 @@
         </ng-template>
       </ng-template>
     </ng-template>
-  </div>
+  </section>
 </ng-container>
 
-<!-- manca lo sfondo-->
-<div class="container-single-space position-relative">
-  <img src="" class="w-100" alt="" aria-hidden="true" />
+<section class="container-single-space position-relative">
+  <img
+    src="assets/images/dimmer-home.png"
+    class="img-dimmer"
+    alt=""
+    aria-hidden="true"
+  />
   <div class="single-space-info d-flex align-items-center flex-column">
     <h2 class="mb-3">
       {{ "home.single-space.title" | translate }}
@@ -112,5 +117,4 @@
       {{ "home.single-space.to-operate" | translate }}
     </button>
   </div>
-</div>
-<!-- </div> -->
+</section>

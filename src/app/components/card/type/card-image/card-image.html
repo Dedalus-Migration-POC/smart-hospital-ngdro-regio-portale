@@ -1,11 +1,29 @@
 <a [href]="card.href" class="card-link">
-  <div class="d-flex flex-row gap-2">
-    <div class="d-flex flex-column justify-content-start gap-2">
-      <h3 class="mb-0" [ngClass]="card.styleClassTitle">{{ card.title }}</h3>
-      <p class="mb-0" [ngClass]="card.styleClassDescription">
-        {{ card.description }}
-      </p>
+  <ng-container *ngIf="card.imagePos === 'right'; else topTemplate">
+    <div class="d-flex flex-row gap-2">
+      <div class="d-flex flex-column justify-content-start gap-2">
+        <h3 class="mb-0" [ngClass]="card.styleClassTitle">{{ card.title }}</h3>
+        <p class="mb-0" [ngClass]="card.styleClassDescription">
+          {{ card.description }}
+        </p>
+      </div>
+      <img [src]="card.image" aria-hidden="true" alt="" />
     </div>
-    <img [src]="card.image" aria-hidden="true" alt="" />
-  </div>
+  </ng-container>
+  <ng-template #topTemplate>
+    <div
+      class="d-flex flex-column gap-3 align-items-center justify-content-center"
+    >
+      <img
+        [src]="card.image"
+        aria-hidden="true"
+        alt=""
+        [attr.width]="card.imageWith || 80"
+        [attr.height]="card.imageHeight || 80"
+      />
+      <h3 class="mb-0 text-center" [ngClass]="card.styleClassTitle">
+        {{ card.title }}
+      </h3>
+    </div>
+  </ng-template>
 </a>

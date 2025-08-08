@@ -14,6 +14,8 @@ import {
   CardImage,
   CardLink,
 } from '../../components/card/models';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../store/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -73,7 +75,11 @@ export class HomeComponent implements OnInit {
     ariaLabelList: 'home.regional-service.service',
   };
 
-  constructor(private store: Store<SmartHospitalState>) {
+  constructor(
+    private store: Store<SmartHospitalState>,
+    private route: ActivatedRoute,
+    private authService: AuthService,
+  ) {
     this.loginService = toSignal(this.store.select(selectLoginService), {
       initialValue: { data: [], loading: true, error: false },
     });
@@ -86,6 +92,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(fetchLoginServices());
     this.store.dispatch(fetchRegionalServices());
+
+    // this.route.queryParamMap.subscribe((params) => {
+    //   const encryptedCode = params.get('code');
+    //   const passphrase = '66e8de09-aaba-4e78-a8de-09aaba5e78a2';
+
+    //   if (encryptedCode && passphrase) {
+    //     console.log(this.authService.decryptCode(encryptedCode, passphrase));
+    //   } else {
+    //     console.error('ERRORE DECODIFICA');
+    //   }
+    // });
   }
 
   onRetryLogin(): void {

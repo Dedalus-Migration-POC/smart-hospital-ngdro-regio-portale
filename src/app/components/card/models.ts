@@ -1,6 +1,6 @@
 export interface CardContainer {
   title: string;
-  description: string;
+  description?: string;
   ariaLabelList: string;
   styleClassTitle?: string;
   styleClassDescription?: string;
@@ -20,12 +20,14 @@ export interface CardLink {
 
 export interface CardImage {
   title: string;
-  description: string;
+  description?: string;
   styleClassTitle?: string;
   styleClassDescription?: string;
   styleClassCard?: string;
   image: string; // path
   imagePos: 'right' | 'top';
+  imageWith?: string;
+  imageHeight?: string;
   href: string;
   type: 'image';
 }
