@@ -15,6 +15,20 @@
           margin-right: 0.625rem;
         }
       }
+
+      #btn-logout {
+        background-color: #fff;
+        color: #06c;
+        padding: 0.25rem 0.5rem;
+
+        &:active {
+          background-color: #cce4f7;
+        }
+
+        &:hover {
+          background-color: #e6f0fa;
+        }
+      }
     }
   }
 

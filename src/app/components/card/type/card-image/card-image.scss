@@ -1,22 +1,22 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+p {
+  cursor: default;
+}
+
 a.card-link {
   --#{$prefix}link-color: #16395e;
   text-decoration: none;
+}
 
-  .card-regional-service-title {
-    font-size: 1.3rem !important;
-    font-weight: 600;
-    line-height: 2rem;
-  }
+.card-regional-service-title {
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  line-height: 2rem;
+  cursor: default;
+}
 
-  p.card-regional-service-description {
-    color: #2f475e;
-  }
-
-  .card-regional-service-available-title {
-    font-size: 1.25rem;
-    line-height: 1.5rem;
-  }
+.text-regional-service-description {
+  color: #16395e;
 }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CardImage } from '../../models';
+import { CardImage } from '../../card.models';
 
 @Component({
   selector: 'app-card-image',

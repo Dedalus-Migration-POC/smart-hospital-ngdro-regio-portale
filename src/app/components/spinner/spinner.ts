@@ -10,6 +10,8 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './spinner.scss',
 })
 export class SpinnerComponent {
-  @Input() styleClass = '';
-  @Input() message = 'common.loading';
+  @Input() styleClassContainer = '';
+  @Input() styleClassSpinner = '';
+  @Input() message = 'common.loading'; // non visibile di default, serve per l'accessibilità, se showLabel => true allora si visualizza
+  @Input() showLabel = false; // se visualizzare o meno la label insieme allo spinner
 }

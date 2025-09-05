@@ -3,18 +3,21 @@
 
 .title {
   font-size: 2rem;
+  cursor: default;
 }
 
 .description {
   font-size: 1.25rem;
   font-weight: 400;
   color: #2f475e;
+  cursor: default;
 }
 
-.container-login-service {
+.container-how-it-works {
   padding: 2.5rem 0; // 4.5rem
+  cursor: default;
 
-  .card-login-service {
+  .card-how-it-works {
     border-left-width: 0 !important;
     border-right-width: 0 !important;
     border-top-width: 0 !important;

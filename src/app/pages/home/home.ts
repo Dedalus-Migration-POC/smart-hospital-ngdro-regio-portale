@@ -1,115 +1,69 @@
-import { Component, OnInit, Signal, computed } from '@angular/core';
+import { Component, OnInit, Signal, computed, inject } from '@angular/core';
 import { CardComponent } from '../../components/card/card';
 import { TranslateModule } from '@ngx-translate/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { Store } from '@ngrx/store';
-import { fetchLoginServices, fetchRegionalServices } from './state/actions';
-import { selectLoginService, selectRegionalService } from './state/selectors';
-import { SmartHospitalState } from '../../store/reducers';
-import { CommonModule } from '@angular/common';
-import { ErrorMessageComponent } from '../../components/error-message/error-message';
-import { SpinnerComponent } from '../../components/spinner/spinner';
 import {
   CardContainer,
   CardImage,
-  CardLink,
-} from '../../components/card/models';
-import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../../store/auth.service';
+  CardText,
+} from '../../components/card/card.models';
+import { ContentStore } from '../../services/content.store';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,
-    TranslateModule,
-    ErrorMessageComponent,
-    SpinnerComponent,
-    CardComponent,
-  ],
+  imports: [TranslateModule, CardComponent],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class HomeComponent implements OnInit {
-  loginService: Signal<{ data: any[]; loading: boolean; error: boolean }>;
-  regionalService: Signal<{ data: any[]; loading: boolean; error: boolean }>;
+  contentStore = inject(ContentStore);
 
-  cardLinksLoginServices = computed<CardLink[]>(() => {
-    return this.loginService().data.map((item) => ({
+  cardHowItWorksContainer: CardContainer = {
+    title: 'home.how-it-works.title',
+    description: 'home.how-it-works.subtitle',
+    styleClassContainer: 'container-how-it-works',
+    styleClassDescription: 'mb-4',
+    ariaLabelList: 'home.how-it-works.description',
+  };
+
+  cardHowItWorks = computed<CardText[]>(() => {
+    return (this.contentStore.howItWorks() ?? []).map((item) => ({
+      id: item.id,
       title: item.title,
       description: item.description,
-      href: item.href,
-      styleClassCard: 'card-login-service',
-      styleClassTitle: 'card-login-service-title',
-      styleClassDescription: 'card-login-service-description',
+      styleClassCard: 'card-how-it-works',
+      styleClassTitle: 'card-how-it-works-title',
+      styleClassDescription: 'card-how-it-works-description',
       showArrow: true,
-      type: 'link',
+      type: 'text',
     }));
   });
 
-  cardImageRegionalServices = computed<CardImage[]>(() => {
-    return this.regionalService().data.map((item) => ({
+  cardRegionalServicesContainer: CardContainer = {
+    title: 'home.regional-services.title',
+    description: 'home.regional-services.subtitle',
+    styleClassContainer: 'container-regional-service',
+    ariaLabelList: 'home.regional-service.description',
+  };
+
+  cardRegionalServices = computed<CardImage[]>(() => {
+    return (this.contentStore.regionalServices() ?? []).map((item) => ({
+      id: item.id,
       title: item.title,
       description: item.description,
       href: item.href,
       styleClassCard: 'card-regional-service',
       styleClassTitle: 'card-regional-service-title',
-      image: 'assets/images/regional-services/' + item.id + '.svg',
+      styleClassDescription: 'text-regional-service-description',
+      pathImage: 'assets/images/regional-services/' + item.id + '.svg',
       imagePos: 'right',
       type: 'image',
     }));
   });
 
-  cardLinkLoginServicesContainer: CardContainer = {
-    title: 'home.login-service.title',
-    description: 'home.login-service.subtitle',
-    styleClassContainer: 'container-login-service',
-    styleClassDescription: 'mb-4',
-    ariaLabelList: 'home.login-service.service',
-  };
-
-  cardImageRegionalServicesContainer: CardContainer = {
-    title: 'home.regional-services.title',
-    description: 'home.regional-services.subtitle',
-    styleClassContainer: 'container-regional-service container',
-    ariaLabelList: 'home.regional-service.service',
-  };
-
-  constructor(
-    private store: Store<SmartHospitalState>,
-    private route: ActivatedRoute,
-    private authService: AuthService,
-  ) {
-    this.loginService = toSignal(this.store.select(selectLoginService), {
-      initialValue: { data: [], loading: true, error: false },
-    });
-
-    this.regionalService = toSignal(this.store.select(selectRegionalService), {
-      initialValue: { data: [], loading: true, error: false },
-    });
-  }
-
   ngOnInit(): void {
-    this.store.dispatch(fetchLoginServices());
-    this.store.dispatch(fetchRegionalServices());
-
-    // this.route.queryParamMap.subscribe((params) => {
-    //   const encryptedCode = params.get('code');
-    //   const passphrase = '66e8de09-aaba-4e78-a8de-09aaba5e78a2';
-
-    //   if (encryptedCode && passphrase) {
-    //     console.log(this.authService.decryptCode(encryptedCode, passphrase));
-    //   } else {
-    //     console.error('ERRORE DECODIFICA');
-    //   }
-    // });
-  }
-
-  onRetryLogin(): void {
-    this.store.dispatch(fetchLoginServices());
-  }
-
-  onRetryRegional(): void {
-    this.store.dispatch(fetchRegionalServices());
+    if (!this.contentStore.loaded()) {
+      this.contentStore.loadAll();
+    }
   }
 }

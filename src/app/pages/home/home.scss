@@ -13,6 +13,7 @@
     width: 100%;
     height: 100%;
     padding: 6rem 2.5rem;
+    cursor: default;
 
     .btn-login {
       --#{$prefix}btn-bg: #fff;
@@ -32,6 +33,8 @@
 }
 
 .container-single-space {
+  cursor: default;
+
   .img-dimmer {
     width: 100%;
     height: 320px;

@@ -1,6 +1,6 @@
 import { Component, input, Signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { MenuLink } from '../../models/menu.model';
+import { MenuLink } from '../menu.model';
 import { CommonModule } from '@angular/common';
 
 @Component({

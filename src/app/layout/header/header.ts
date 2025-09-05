@@ -1,9 +1,9 @@
-import { Component, input, Signal } from '@angular/core';
+import { Component, inject, input, Signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { MenuLink } from '../../models/menu.model';
+import { MenuLink } from '../menu.model';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../store/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +13,11 @@ import { AuthService } from '../../store/auth.service';
   styleUrl: './header.scss',
 })
 export class HeaderComponent {
+  private authService = inject(AuthService);
+  public router = inject(Router);
+
+  isAuthenticated = this.authService.isAuthenticated;
+
   social = input<Signal<MenuLink[]>>();
 
   menu: Array<MenuLink> = [
@@ -30,19 +35,22 @@ export class HeaderComponent {
     },
   ];
 
-  constructor(
-    public router: Router,
-    private authService: AuthService,
-  ) {}
-
   get socialLinks(): MenuLink[] {
     return this.social()?.() ?? [];
   }
 
+  get authenticated(): boolean {
+    return this.isAuthenticated();
+  }
+
   login(event: MouseEvent) {
     event.preventDefault();
-    const url = this.authService.auth();
+    const url = this.authService.login();
 
     window.location.href = url;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

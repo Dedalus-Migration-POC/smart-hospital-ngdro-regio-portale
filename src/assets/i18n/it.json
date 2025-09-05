@@ -8,8 +8,10 @@
       "twitter": "Twitter"
     },
     "loading": "Caricamento",
-    "error-loading": "Errore: impossibile caricare i dati. Riprova più tardi.",
-    "retry": "Riprovare"
+    "error-loading": "Errore nel caricamento delle applicazioni.",
+    "retry": "Riprovare",
+    "empty": "Al momento non ci sono servizi disponibili.",
+    "logout": "Esci"
   },
   "header": {
     "personal-area": "Accedi all'area personale",
@@ -37,17 +39,15 @@
       "login": "Login con IDP Regionale",
       "doctors-consultancy-computers": "Due professionisti, un medico e un consulente, collaborano davanti a un computer in un ambiente di ufficio"
     },
-    "login-service": {
+    "how-it-works": {
       "title": "Come funziona",
       "subtitle": "Dal login all'uso dei servizi, senza interruzioni",
-      "service": "Lista dei servizi per la login",
-      "empty": "Al momento non ci sono servizi disponibili. Riprova più tardi o contatta l'assistenza."
+      "description": "Come funziona dalla login all'uso dei servizi"
     },
     "regional-services": {
       "title": "Tutto per te",
       "subtitle": "Scopri i tuoi servizi regionali",
-      "service": "Lista dei servizi regionali",
-      "empty": "Al momento non ci sono servizi disponibili. Riprova più tardi o contatta l'assistenza."
+      "description": "Lista dei servizi regionali"
     },
     "single-space": {
       "title": "Scopri i tuoi servizi in un unico spazio",
@@ -58,12 +58,12 @@
   "dashboard": {
     "regional-services-available": {
       "title": "Servizi regionali disponibili",
-      "empty": "Al momento non ci sono servizi disponibili. Riprova più tardi o contatta l'assistenza."
+      "partial-loading": "Alcuni servizi non sono stati caricati",
+      "loading": "Caricamento dei servizi"
     },
     "user-profile": {
       "last-connection": "Ultimo collegamento",
-      "logoutAriaLabel": "Esci dall'account di {{name}}",
-      "logout": "Esci"
+      "logoutAriaLabel": "Esci dall'account di {{name}}"
     }
   },
   "footer": {

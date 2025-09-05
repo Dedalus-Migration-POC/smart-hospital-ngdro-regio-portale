@@ -2,7 +2,7 @@ import { Component, computed, signal, Signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './layout/header/header';
 import { FooterComponent } from './layout/footer/footer';
-import { MenuLink } from './models/menu.model';
+import { MenuLink } from './layout/menu.model';
 
 @Component({
   selector: 'app-root',
