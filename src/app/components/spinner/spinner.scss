@@ -3,6 +3,10 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+
+  &.container-spinner-height {
+    min-height: 300px;
+  }
 }
 
 .spinner-24x {

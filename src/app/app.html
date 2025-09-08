@@ -1,3 +1,12 @@
 <app-header [social]="headerSocial"></app-header>
-<router-outlet />
+
+@if (loadingService.active()) {
+  <app-spinner
+    [showLabel]="false"
+    styleClassContainer="container-spinner-height"
+  ></app-spinner>
+} @else {
+  <router-outlet />
+}
+
 <app-footer [social]="footerSocial"></app-footer>

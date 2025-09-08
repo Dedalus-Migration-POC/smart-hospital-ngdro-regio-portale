@@ -1,18 +1,22 @@
-import { Component, computed, signal, Signal } from '@angular/core';
+import { Component, computed, inject, signal, Signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './layout/header/header';
 import { FooterComponent } from './layout/footer/footer';
 import { MenuLink } from './layout/menu.model';
+import { LoadingService } from './services/loading.service';
+import { SpinnerComponent } from './components/spinner/spinner';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, SpinnerComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('regio-portale');
+
+  loadingService = inject(LoadingService);
 
   social: Signal<MenuLink[]> = signal([
     {
