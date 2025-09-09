@@ -1,0 +1,22 @@
+[
+  {
+    "id": "autenticati",
+    "title": "Autenticati",
+    "description": "Accedi tramite IDP Emilia-Romagna in modo sicuro e veloce."
+  },
+  {
+    "id": "scegli-servizi",
+    "title": "Scegli i servizi",
+    "description": "Puoi entrare a uno o più servizi digitali già profilati per te."
+  },
+  {
+    "id": "single-sign-on",
+    "title": "Single Sign-On",
+    "description": "Una sola autenticazione vale per tutte le applicazioni aperte."
+  },
+  {
+    "id": "disconnessione",
+    "title": "Disconnessione",
+    "description": "Uscendo da una delle app, verrai disconnesso da tutte le altre."
+  }
+]

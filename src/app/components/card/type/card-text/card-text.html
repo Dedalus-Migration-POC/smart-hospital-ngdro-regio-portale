@@ -1,0 +1,16 @@
+<div class="d-flex flex-column gap-3 card-text">
+  <div class="d-flex flex-row align-items-center">
+    <h3 [ngClass]="card.styleClassTitle">{{ card.title }}</h3>
+    @if (card.showArrow) {
+      <img
+        src="assets/images/arrow-right.svg"
+        class="ms-auto"
+        aria-hidden="true"
+        alt=""
+      />
+    }
+  </div>
+  <p class="mb-3" [ngClass]="card.styleClassDescription">
+    {{ card.description }}
+  </p>
+</div>

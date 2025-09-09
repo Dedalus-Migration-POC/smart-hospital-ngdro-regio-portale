@@ -1,0 +1,36 @@
+@if (card) {
+  @if (card.button_enable) {
+    <a
+      [href]="card.url_login"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="card-link p-4 d-block"
+      (click)="onCardClick($event, card.id, card.url_login)"
+    >
+      <ng-container *ngTemplateOutlet="cardContent"></ng-container>
+    </a>
+  } @else {
+    <div class="card-disabled h-100 p-4">
+      <ng-container *ngTemplateOutlet="cardContent"></ng-container>
+    </div>
+  }
+
+  <ng-template #cardContent>
+    <div
+      class="d-flex flex-column gap-3 align-items-center justify-content-center"
+    >
+      <img [src]="card.url_image_svg" aria-hidden="true" alt="" width="80" />
+      @if (card.title) {
+        <h3 class="mb-0 text-center" [ngClass]="card.styleClassTitle">
+          {{ card.title }}
+        </h3>
+      }
+
+      @if (card.description) {
+        <p class="mb-0 text-center" [ngClass]="card.styleClassDescription">
+          {{ card.description }}
+        </p>
+      }
+    </div>
+  </ng-template>
+}

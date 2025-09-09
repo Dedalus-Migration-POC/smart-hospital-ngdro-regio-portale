@@ -1,0 +1,38 @@
+<section
+  class="user-profile p-4 mb-5 d-none d-lg-block"
+  role="region"
+  aria-labelledby="userTitle"
+>
+  <div class="d-flex flex-row gap-3 align-items-center">
+    <img
+      src="assets/images/avatar-placeholder.svg"
+      width="80"
+      height="80"
+      alt=""
+      aria-hidden="true"
+      role="presentation"
+    />
+    <div class="user-info">
+      <h2 id="userTitle" class="user-name fw-semibold mb-0">
+        {{ user.name }}
+      </h2>
+      <p class="last-connection mb-0">
+        <small>
+          {{ "dashboard.user-profile.last-connection" | translate }}
+          {{ user.lastLogin }}</small
+        >
+      </p>
+    </div>
+  </div>
+
+  <hr aria-hidden="true" />
+
+  <button
+    type="button"
+    class="btn btn-sm btn-outline-primary"
+    (click)="logout()"
+    [attr.aria-label]="'user.logoutAriaLabel' | translate: { name: user.name }"
+  >
+    {{ "common.logout" | translate }}
+  </button>
+</section>

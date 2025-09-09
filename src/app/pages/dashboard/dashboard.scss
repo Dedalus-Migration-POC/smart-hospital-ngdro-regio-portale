@@ -1,0 +1,21 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.container-dashboard {
+  gap: 1.875rem;
+  padding-right: 4.5rem;
+
+  @include breakpoint-down(lg) {
+    flex-direction: column !important;
+    gap: 0;
+    padding: 1.125rem;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .alert {
+    background-position: 32px 24px;
+  }
+}

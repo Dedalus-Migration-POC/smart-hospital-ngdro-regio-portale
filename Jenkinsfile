@@ -1,0 +1,1 @@
+buildAngular(['regio-portale'], 'regio-portale', null, null, null, null, [skipOutputPath: true ])

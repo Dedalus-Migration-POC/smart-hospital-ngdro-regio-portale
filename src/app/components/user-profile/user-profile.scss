@@ -1,0 +1,32 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.user-profile {
+  min-width: 400px;
+  min-height: 260px;
+  margin-top: 8.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  @include breakpoint-down(md) {
+    margin-top: 0rem;
+  }
+
+  .user-info {
+    cursor: default;
+
+    .user-name {
+      font-size: 1.75rem;
+      color: #06c;
+      line-height: 1.75rem;
+    }
+
+    hr {
+      margin: 1.25rem 0;
+    }
+
+    .last-connection {
+      color: #2f475e;
+    }
+  }
+}

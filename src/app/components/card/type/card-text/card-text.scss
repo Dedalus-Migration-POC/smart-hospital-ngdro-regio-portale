@@ -1,0 +1,16 @@
+@use "variables" as *;
+
+.card-text {
+  --#{$prefix}link-color: #16395e;
+  text-decoration: none;
+
+  h3.card-how-it-works-title {
+    //  color: #16395e;
+    margin-bottom: 0;
+    font-size: 1.75rem !important;
+  }
+
+  p.card-how-it-works-description {
+    color: #2f475e;
+  }
+}
