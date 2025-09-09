@@ -30,9 +30,9 @@ export class CardComponent {
   @Input() loadingLabel? = 'common.loading';
 
   // Gestione degli errori parziali di alcune card
-  @Input() postFailed? = false;
-  @Input() failedCount? = 0;
-  @Input() total? = 0;
+  // @Input() postFailed? = false;
+  // @Input() failedCount? = 0;
+  // @Input() total? = 0;
 
-  @Output() reload = new EventEmitter<void>();
+  // @Output() reload = new EventEmitter<void>();
 }

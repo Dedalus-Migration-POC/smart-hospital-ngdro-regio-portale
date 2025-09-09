@@ -26,7 +26,8 @@
     ></app-spinner>
   }
 
-  @if (!loading && postFailed) {
+  <!-- GESTIONE DEGLI ERRORI DI UNA POST /get-buttons-for-vertical
+   @if (!loading && postFailed) {
     <div
       class="alert alert-warning d-flex justify-content-between align-items-center gap-3 mt-2"
       role="status"
@@ -38,9 +39,9 @@
             "dashboard.regional-services-available.partial-loading" | translate
           }}
         </strong>
-        <!-- <div class="small text-body-secondary">
+         <div class="small text-body-secondary">
           {{ failedCount }} / {{ total }}
-        </div> -->
+        </div> 
       </div>
       <button
         type="button"
@@ -50,7 +51,7 @@
         {{ "common.retry" | translate }}
       </button>
     </div>
-  }
+  } -->
 
   @if (cardContent.length) {
     <ul
