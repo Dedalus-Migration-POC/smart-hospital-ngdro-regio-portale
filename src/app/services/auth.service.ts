@@ -220,10 +220,8 @@ export class AuthService {
   private jwtExp(token: string): number | undefined {
     try {
       const [, payload] = token.split('.');
-      const json = JSON.parse(
-        atob(payload.replace(/-/g, '+').replace(/_/g, '/')),
-      );
-      return typeof json.exp === 'number' ? json.exp : undefined;
+      const json = this.base64UrlToUtf8Json(payload);
+      return typeof json?.exp === 'number' ? json.exp : undefined;
     } catch {
       return undefined;
     }
