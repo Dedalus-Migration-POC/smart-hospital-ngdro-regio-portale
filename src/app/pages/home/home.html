@@ -1,72 +1,84 @@
-<section class="container-doctors-consultancy-computers position-relative">
-  <img
-    src="assets/images/medici-consulenza-computer.png"
-    class="w-100"
-    [attr.alt]="
-      'home.doctors-consultancy-computers.doctors-consultancy-computers'
-        | translate
-    "
-  />
-  <div
-    class="doctors-consultancy-computers-info text-white d-flex align-items-center flex-column"
-  >
-    <p class="mb-2">
-      {{ "home.doctors-consultancy-computers.single-portal" | translate }}
-    </p>
-    <h1 class="h2 mb-3">
-      {{ "home.doctors-consultancy-computers.welcome" | translate }}
-    </h1>
-    <p
-      class="text-center mb-0"
-      [innerHtml]="
-        'home.doctors-consultancy-computers.access-portal' | translate
-      "
-    ></p>
-
-    <button type="button" class="btn btn-login">
-      {{ "home.doctors-consultancy-computers.login" | translate }}
-    </button>
-  </div>
-</section>
-
-@if (contentStore.loaded() && !contentStore.error()) {
-  <section class="container">
-    <app-card
-      [cardContainer]="cardHowItWorksContainer"
-      [cardContent]="cardHowItWorks()"
+<main id="main">
+  <section class="container-doctors-consultancy-computers position-relative">
+    <img
+      src="assets/images/medici-consulenza-computer.png"
+      class="w-100"
+      alt=""
+      aria-hidden="true"
+    />
+    <div
+      class="doctors-consultancy-computers-info text-white d-flex align-items-center flex-column"
     >
-    </app-card>
-  </section>
+      <p class="mb-2">
+        {{ "home.doctors-consultancy-computers.single-portal" | translate }}
+      </p>
+      <h1 class="h2 mb-3">
+        {{ "home.doctors-consultancy-computers.welcome" | translate }}
+      </h1>
+      <p class="text-center mb-0">
+        {{ "home.doctors-consultancy-computers.access-portal-1" | translate }}
+      </p>
+      <p class="text-center mb-0">
+        {{ "home.doctors-consultancy-computers.access-portal-2" | translate }}
+      </p>
 
-  <section class="container-regional-service-bg">
-    <div class="container">
-      <app-card
-        [cardContainer]="cardRegionalServicesContainer"
-        [cardContent]="cardRegionalServices()"
+      <button
+        type="button"
+        class="btn btn-login"
+        [attr.label]="'home.doctors-consultancy-computers.login' | translate"
+        (click)="login($event)"
       >
-      </app-card>
+        {{ "home.doctors-consultancy-computers.login" | translate }}
+      </button>
     </div>
   </section>
-}
 
-<section class="container-single-space position-relative">
-  <img
-    src="assets/images/dimmer-home.png"
-    class="img-dimmer"
-    alt=""
-    aria-hidden="true"
-  />
-  <div class="single-space-info d-flex align-items-center flex-column">
-    <h2 class="mb-3">
-      {{ "home.single-space.title" | translate }}
-    </h2>
-    <p
-      class="text-center mb-0"
-      [innerHtml]="'home.single-space.description' | translate"
-    ></p>
+  @if (contentStore.loaded() && !contentStore.error()) {
+    <section class="container-xxl">
+      <app-card
+        [cardContainer]="cardHowItWorksContainer"
+        [cardContent]="cardHowItWorks()"
+      >
+      </app-card>
+    </section>
 
-    <button type="button" class="btn btn-to-operate">
-      {{ "home.single-space.to-operate" | translate }}
-    </button>
-  </div>
-</section>
+    <section class="container-regional-service-bg">
+      <div class="container-xxl">
+        <app-card
+          [cardContainer]="cardRegionalServicesContainer"
+          [cardContent]="cardRegionalServices()"
+        >
+        </app-card>
+      </div>
+    </section>
+  }
+
+  <section class="container-single-space position-relative">
+    <img
+      src="assets/images/dimmer-home.png"
+      class="img-dimmer"
+      alt=""
+      aria-hidden="true"
+    />
+    <div class="single-space-info d-flex align-items-center flex-column">
+      <h2 class="mb-3 d-none d-md-inline-block">
+        {{ "home.single-space.title" | translate }}
+      </h2>
+      <p class="text-center mb-0">
+        {{ "home.single-space.description-1" | translate }}
+      </p>
+      <p class="text-center mb-0">
+        {{ "home.single-space.description-2" | translate }}
+      </p>
+
+      <button
+        type="button"
+        class="btn btn-to-operate"
+        [attr.aria-label]="'home.single-space.to-operate' | translate"
+        (click)="login($event)"
+      >
+        {{ "home.single-space.to-operate" | translate }}
+      </button>
+    </div>
+  </section>
+</main>

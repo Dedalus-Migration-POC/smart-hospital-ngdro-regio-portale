@@ -14,7 +14,7 @@
 }
 
 .container-how-it-works {
-  padding: 2.5rem 0; // 4.5rem
+  padding: 2.5rem 1.125rem;
   cursor: default;
 
   .card-how-it-works {
@@ -35,7 +35,7 @@
 }
 
 .container-regional-service {
-  padding: 3.125rem 0; // 4.5rem
+  padding: 3.125rem 1.125rem;
 
   .card-regional-service {
     --#{$prefix}card-spacer-y: 1.5rem;

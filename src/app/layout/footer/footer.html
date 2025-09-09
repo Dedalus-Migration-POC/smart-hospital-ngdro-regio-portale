@@ -1,30 +1,29 @@
-<footer class="it-footer">
+<footer class="it-footer" role="contentinfo">
   <div class="it-footer-main">
     <div class="container">
       <section class="section-brand">
         <div class="row clearfix">
           <div class="col-sm-12">
-            <div class="it-brand-wrapper d-flex gap-5">
-              <a href="#" data-focus-mouse="false">
-                <img
-                  src="assets/images/logos/footer-logo-regio.svg"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </a>
-              <a href="#" data-focus-mouse="false">
-                <img
-                  src="assets/images/logos/footer-logo-regio-emilia.png"
-                  width="299"
-                  height="43.2954"
-                  [attr.alt]="'common.entity' | translate"
-                  aria-hidden="true"
-                />
-              </a>
+            <div class="it-brand-wrapper d-flex gap-5 align-items-center">
+              <img
+                src="assets/images/logos/footer-logo-regio.svg"
+                alt=""
+                aria-hidden="true"
+                decoding="async"
+              />
+              <img
+                src="assets/images/logos/footer-logo-regio-emilia.png"
+                width="299"
+                height="43.2954"
+                alt=""
+                aria-hidden="true"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
       </section>
+
       <section class="section-info py-4 border-top">
         <div class="d-flex flex-row gap-4">
           <div class="pb-2 col-12 col-md-3">
@@ -42,7 +41,14 @@
             </p>
             <p class="mb-0">
               {{ "footer.contacts.switchboard" | translate }}
-              <a class="text-decoration-underline" href="#">051 5271</a>
+              <a
+                href="tel:051 5271"
+                class="fw-bold me-2"
+                [attr.aria-label]="
+                  ('common.help-desk' | translate) + ' 051 5271'
+                "
+                >051 5271</a
+              >
             </p>
 
             <div class="link-list-wrapper">
@@ -51,71 +57,91 @@
                   <a class="list-item" href="#">
                     {{
                       "footer.contacts.search-phones-or-addresses" | translate
-                    }}</a
-                  >
+                    }}
+                  </a>
                 </li>
                 <li>
                   <a class="list-item" href="#">
                     {{
                       "footer.contacts.send-suggestions-task-force" | translate
-                    }}</a
-                  >
+                    }}
+                  </a>
                 </li>
               </ul>
             </div>
           </div>
+
           <div class="pb-2 col-12 col-md-3">
             <h4 class="mb-4">
               {{ "footer.collaboration.collaboration" | translate }}
             </h4>
-            <a href="#" data-focus-mouse="false">
+            <a
+              href="https://www.dedalus.com/italy/it/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src="assets/images/logos/logo-dedalus.svg"
                 [attr.alt]="'collaboration.dedalus' | translate"
-                aria-hidden="true"
+                decoding="async"
               />
             </a>
           </div>
+
           <div class="pb-2 col-12 col-md-3 ms-auto">
             <h4 class="mb-4">
               {{ "common.social.follow-us" | translate }}
             </h4>
+
             <ul class="list-unstyled d-flex align-items-center m-0 p-0">
-              <li *ngFor="let item of socialLinks" class="social-link">
-                <a
-                  [href]="item.link"
-                  [ngClass]="item.styleClass"
-                  [attr.aria-label]="item.labelI18n | translate"
-                >
-                  <ng-container *ngIf="item.image; else text">
-                    <img [src]="item.image" alt="" aria-hidden="true" />
-                  </ng-container>
-                  <ng-template #text>
-                    {{ item.labelI18n | translate }}
-                  </ng-template>
-                </a>
-              </li>
+              @for (item of socialLinks; track item) {
+                <li class="social-link">
+                  <a
+                    [href]="item.link"
+                    target="_blank"
+                    [ngClass]="item.styleClass"
+                  >
+                    @if (item.image) {
+                      <img
+                        [src]="item.image"
+                        [attr.alt]="item.labelI18n | translate"
+                        decoding="async"
+                        width="24"
+                        height="24"
+                      />
+                    } @else {
+                      {{ item.labelI18n | translate }}
+                    }
+                  </a>
+                </li>
+              }
             </ul>
           </div>
         </div>
       </section>
     </div>
   </div>
+
   <div class="it-footer-small-prints clearfix">
     <div class="container">
-      <ul
-        class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row"
-      >
-        <li *ngFor="let link of smallPrint" class="list-inline-item">
-          <a
-            [href]="link.link"
-            [attr.target]="link.isExternal ? '_blank' : null"
-            [attr.rel]="link.isExternal ? 'noopener noreferrer' : null"
-          >
-            {{ link.labelI18n | translate }}
-          </a>
-        </li>
-      </ul>
+      @if (smallPrint && smallPrint.length) {
+        <ul
+          class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row"
+        >
+          @for (link of smallPrint; track link) {
+            <li class="list-inline-item">
+              <a
+                [href]="link.link"
+                [attr.target]="link.isExternal ? '_blank' : null"
+                [attr.rel]="link.isExternal ? 'noopener noreferrer' : null"
+                [attr.aria-label]="link.labelI18n | translate"
+              >
+                {{ link.labelI18n | translate }}
+              </a>
+            </li>
+          }
+        </ul>
+      }
     </div>
   </div>
 </footer>

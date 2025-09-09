@@ -1,5 +1,4 @@
-<!-- TODO verifica aria-current="page" per il menu attivo -->
-<header class="it-header-wrapper">
+<header class="it-header-wrapper" role="banner">
   <div class="it-header-slim-wrapper">
     <div class="container-xxl">
       <div class="row">
@@ -14,9 +13,9 @@
             <div class="it-header-slim-right-zone">
               <div class="it-access-top-wrapper">
                 @if (!authenticated) {
-                  <a
-                    class="btn btn-personal-area bg-transparent"
-                    href="#"
+                  <button
+                    id="btn-login"
+                    class="btn bg-transparent text-white"
                     (click)="login($event)"
                     [attr.aria-label]="'header.personal-area' | translate"
                   >
@@ -26,7 +25,7 @@
                       aria-hidden="true"
                     />
                     {{ "header.personal-area" | translate }}
-                  </a>
+                  </button>
                 } @else {
                   <button
                     type="button"
@@ -53,7 +52,8 @@
           <div class="col-12">
             <div class="it-header-center-content-wrapper">
               <div class="it-brand-wrapper">
-                <a href="#">
+                <!-- <a href="#"> -->
+                <div class="d-flex flex-row text-white">
                   <img
                     src="assets/images/logos/header-logo-regio.svg"
                     class="me-3"
@@ -68,7 +68,9 @@
                       {{ "header.logo-regio-subtitle" | translate }}
                     </div>
                   </div>
-                </a>
+                </div>
+
+                <!-- </a> -->
               </div>
 
               <div class="it-right-zone">
@@ -81,11 +83,18 @@
                       <li class="me-3">
                         <a
                           [href]="item.link"
+                          target="_blank"
                           [ngClass]="item.styleClass"
                           [attr.aria-label]="item.labelI18n | translate"
                         >
                           @if (item.image) {
-                            <img [src]="item.image" alt="" aria-hidden="true" />
+                            <img
+                              [src]="item.image"
+                              [attr.alt]="item.labelI18n | translate"
+                              decoding="async"
+                              width="24"
+                              height="24"
+                            />
                           } @else {
                             {{ item.labelI18n | translate }}
                           }
@@ -153,19 +162,13 @@
 
                 <div class="menu-wrapper">
                   <ul class="navbar-nav">
-                    <!-- Sostituito *ngFor con @for -->
                     @for (item of menu; track item) {
                       <li
                         class="nav-item"
                         routerLinkActive="active"
                         [routerLinkActiveOptions]="{ exact: true }"
                       >
-                        <a
-                          class="nav-link fw-semibold"
-                          [routerLink]="item.link"
-                          [attr.aria-current]="
-                            router.isActive(item.link, true) ? 'page' : null
-                          "
+                        <a class="nav-link fw-semibold" [routerLink]="item.link"
                           ><span>{{ item.labelI18n | translate }}</span></a
                         >
                       </li>
@@ -185,7 +188,22 @@
       <div class="row">
         <div class="col-12">
           <div class="container-text-support">
-            <small [innerHTML]="'header.support' | translate"></small>
+            <small class="me-2 d-none d-md-inline-block">{{
+              "header.support" | translate
+            }}</small>
+            <small class="fw-bold me-2">{{
+              "header.assistance" | translate
+            }}</small>
+            <small>
+              <a
+                href="tel:800 1234567"
+                class="fw-bold me-2"
+                [attr.aria-label]="
+                  ('common.help-desk' | translate) + ' 800 1234567'
+                "
+                >800 1234567</a
+              ></small
+            >
             <img src="assets/images/phone.svg" alt="" aria-hidden="true" />
           </div>
         </div>

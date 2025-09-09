@@ -3,30 +3,36 @@
 
 .it-header-wrapper {
   .it-header-slim-wrapper {
-    .it-header-slim-right-zone {
-      .btn-personal-area {
-        font-style: normal;
-
-        &:active {
-          color: #fff;
-        }
-
-        img {
-          margin-right: 0.625rem;
-        }
+    .it-header-slim-wrapper-content {
+      @include breakpoint-down(lg) {
+        justify-content: end;
       }
 
-      #btn-logout {
-        background-color: #fff;
-        color: #06c;
-        padding: 0.25rem 0.5rem;
+      .it-header-slim-right-zone {
+        #btn-login {
+          img {
+            margin-right: 0.625rem;
+          }
 
-        &:active {
-          background-color: #cce4f7;
+          &:hover,
+          &:active {
+            background: #246bb7 !important;
+            text-decoration: underline;
+          }
         }
 
-        &:hover {
-          background-color: #e6f0fa;
+        #btn-logout {
+          background-color: #fff;
+          color: #06c;
+          padding: 0.25rem 0.5rem;
+
+          &:active {
+            background-color: #cce4f7;
+          }
+
+          &:hover {
+            background-color: #e6f0fa;
+          }
         }
       }
     }
@@ -35,11 +41,15 @@
   .it-header-center-wrapper {
     .it-header-center-content-wrapper {
       .it-brand-title {
+        cursor: default;
+
         @include breakpoint-up(lg) {
           font-size: 2rem;
         }
       }
       .it-brand-tagline {
+        cursor: default;
+
         @include breakpoint-up(lg) {
           font-size: 1rem;
         }
@@ -67,6 +77,10 @@
 
     .container-text-support {
       padding: 0 0.5rem 0 1.125rem;
+
+      small {
+        cursor: default;
+      }
     }
   }
 }

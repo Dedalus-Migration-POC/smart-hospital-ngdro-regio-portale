@@ -7,6 +7,7 @@ import {
   CardText,
 } from '../../components/card/card.models';
 import { ContentStore } from '../../services/content.store';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ import { ContentStore } from '../../services/content.store';
 })
 export class HomeComponent implements OnInit {
   contentStore = inject(ContentStore);
+  authService = inject(AuthService);
 
   cardHowItWorksContainer: CardContainer = {
     title: 'home.how-it-works.title',
@@ -65,5 +67,12 @@ export class HomeComponent implements OnInit {
     if (!this.contentStore.loaded()) {
       this.contentStore.loadAll();
     }
+  }
+
+  login(event: MouseEvent) {
+    event.preventDefault();
+    const url = this.authService.login();
+
+    window.location.href = url;
   }
 }

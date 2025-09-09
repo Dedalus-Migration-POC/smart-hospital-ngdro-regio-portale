@@ -8,15 +8,16 @@
       "twitter": "Twitter"
     },
     "loading": "Caricamento",
-    "error-loading": "Errore nel caricamento delle applicazioni.",
-    "retry": "Riprovare",
+    "error-loading": "Errore nel caricamento dei servizi",
+    "retry": "Ricarica",
     "empty": "Al momento non ci sono servizi disponibili.",
-    "logout": "Esci"
+    "logout": "Esci",
+    "help-desk": "Chiama il numero"
   },
   "header": {
     "personal-area": "Accedi all'area personale",
-    "logo-regio": "RegioPortale",
-    "logo-regio-subtitle": "Tutto il tuo lavoro, in un'unica porta d'accesso",
+    "logo-regio": "ER-PSP",
+    "logo-regio-subtitle": "Portale Prevenzione Salute",
     "search": {
       "search": "Cerca",
       "search-aria": "Cerca nel sito"
@@ -29,15 +30,16 @@
       "faq": "FAQ",
       "support": "Supporto"
     },
-    "support": "Richiedi informazioni o fai una segnalazione <b>Assistenza <a href=\"#\">800 1234567</a></b> "
+    "support": "Richiedi informazioni o fai una segnalazione",
+    "assistance": "Assistenza"
   },
   "home": {
     "doctors-consultancy-computers": {
       "single-portal": "Portale Unico Accesso Operatore",
       "welcome": "Benvenuto in ER-PSP",
-      "access-portal": "Accedi a Portale Prevenzione Salute: un unico accesso per tutti i servizi digitali,<br> pensati per semplificare la salute e la sicurezza.",
-      "login": "Login con IDP Regionale",
-      "doctors-consultancy-computers": "Due professionisti, un medico e un consulente, collaborano davanti a un computer in un ambiente di ufficio"
+      "access-portal-1": "Accedi a Portale Prevenzione Salute: un unico accesso per tutti i servizi digitali,",
+      "access-portal-2": "pensati per semplificare la salute e la sicurezza.",
+      "login": "Login con IDP Regionale"
     },
     "how-it-works": {
       "title": "Come funziona",
@@ -51,7 +53,8 @@
     },
     "single-space": {
       "title": "Scopri i tuoi servizi in un unico spazio",
-      "description": "Accedi al ER-PSP Portale Prevenzione Salute e visualizza la tua dashboard già profilata, con tutti i servizi digitali <br>regionali di cui hai bisogno. Un accesso sicuro, un'interfaccia chiara e strumenti pensati per semplificare il tuo lavoro.",
+      "description-1": "Accedi al ER-PSP Portale Prevenzione Salute e visualizza la tua dashboard già profilata, con tutti i servizi digitali regionali di cui hai bisogno.",
+      "description-2": "Un accesso sicuro, un'interfaccia chiara e strumenti pensati per semplificare il tuo lavoro.",
       "to-operate": "Collegati ora e scopri come operare"
     }
   },

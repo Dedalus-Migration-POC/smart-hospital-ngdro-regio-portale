@@ -21,10 +21,10 @@ export class HeaderComponent {
   social = input<Signal<MenuLink[]>>();
 
   menu: Array<MenuLink> = [
-    {
-      labelI18n: 'header.menu.home',
-      link: '/home',
-    },
+    // {
+    //   labelI18n: 'header.menu.home',
+    //   link: '/home',
+    // },
     {
       labelI18n: 'header.menu.faq',
       link: '/faq',

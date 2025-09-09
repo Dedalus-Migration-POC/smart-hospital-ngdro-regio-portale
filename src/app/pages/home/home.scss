@@ -15,6 +15,12 @@
     padding: 6rem 2.5rem;
     cursor: default;
 
+    @include breakpoint-down(sm) {
+      justify-content: center;
+      padding: 0;
+      text-align: center;
+    }
+
     .btn-login {
       --#{$prefix}btn-bg: #fff;
       --#{$prefix}btn-color: #06c;
@@ -46,6 +52,12 @@
     top: 0;
     width: 100%;
     height: 100%;
+
+    @include breakpoint-down(sm) {
+      justify-content: center;
+      padding: 0.5rem;
+      text-align: center;
+    }
 
     .btn-to-operate {
       --#{$prefix}btn-bg: #16395e;
