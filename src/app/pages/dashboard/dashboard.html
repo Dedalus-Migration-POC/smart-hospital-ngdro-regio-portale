@@ -1,10 +1,12 @@
 <section class="container-dashboard container-xxl d-flex flex-row">
   <div
-    class="container-regional-service-available flex-grow-1 d-flex align-content-center"
-    [ngClass]="{
-      'justify-content-start': !bootLoading(),
-      'justify-content-center': bootLoading(),
-    }"
+    class="container-regional-service-available flex-grow-1 d-flex align-items-center"
+    [class.justify-content-center]="
+      bootLoading() || viewModel().listError || showEmpty()
+    "
+    [class.justify-content-start]="
+      !(bootLoading() || viewModel().listError || showEmpty())
+    "
   >
     @if (bootLoading()) {
       <app-spinner [showLabel]="false"></app-spinner>
@@ -33,12 +35,10 @@
             {{ "common.empty" | translate }}
           </div>
         } @else {
-          <!-- 
-            [postFailed]="viewModel().postFailed"
-              [failedCount]="viewModel().failedCount"
-              [total]="load().total"
-              (reload)="reload()" 
-              -->
+          <!-- [postFailed]="viewModel().postFailed"
+          [failedCount]="viewModel().failedCount" [total]="load().total"
+          (reload)="reload()" -->
+
           <app-card
             class="flex-grow-1"
             [cardContainer]="cardActionContainer"
