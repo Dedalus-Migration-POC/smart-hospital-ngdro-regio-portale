@@ -60,3 +60,11 @@
     }
   }
 }
+
+.container-regional-service-available {
+  .card-regional-service {
+    @include breakpoint-between(sm, md) {
+      flex: 0 0 49% !important;
+    }
+  }
+}

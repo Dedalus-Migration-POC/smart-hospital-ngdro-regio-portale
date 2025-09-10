@@ -8,7 +8,7 @@
   @include breakpoint-down(lg) {
     flex-direction: column !important;
     gap: 0;
-    padding: 1.125rem;
+    padding-right: 2.5rem;
 
     h2 {
       font-size: 1.8rem;
