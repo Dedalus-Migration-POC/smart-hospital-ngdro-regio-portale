@@ -2,12 +2,20 @@
 @use "mixins" as *;
 
 .container-doctors-consultancy-computers {
+  &::before {
+    content: "";
+    background: rgba(23, 50, 81, 0.85);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
   & > img {
     height: 415px;
   }
 
   .doctors-consultancy-computers-info {
-    background: rgba(23, 50, 81, 0.7);
+    // background: rgba(23, 50, 81, 0.7);
     position: absolute;
     top: 0;
     width: 100%;

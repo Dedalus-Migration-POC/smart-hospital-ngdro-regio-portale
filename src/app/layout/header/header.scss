@@ -40,18 +40,22 @@
 
   .it-header-center-wrapper {
     .it-header-center-content-wrapper {
-      .it-brand-title {
-        cursor: default;
+      .it-brand-text {
+        .it-brand-title {
+          cursor: default;
+          color: #ffffff;
 
-        @include breakpoint-up(lg) {
-          font-size: 2rem;
+          @include breakpoint-up(lg) {
+            font-size: 2rem;
+          }
         }
-      }
-      .it-brand-tagline {
-        cursor: default;
+        .it-brand-tagline {
+          cursor: default;
+          color: #ffffff;
 
-        @include breakpoint-up(lg) {
-          font-size: 1rem;
+          @include breakpoint-up(lg) {
+            font-size: 1rem;
+          }
         }
       }
 
