@@ -15,9 +15,14 @@ export const authGuard: CanActivateFn = async (
 
   const hasCode = route.queryParamMap.has('code');
 
-  // Già autenticato: consenti subito, se c'è ?code ripulisco l'URL
+  // Già autenticato: se c'è ?code ripulisco l'URL
   if (auth.isAuthenticated()) {
-    return hasCode ? router.createUrlTree(['/dashboard']) : true;
+    // Se sono già in dashboard lascio passare
+    if (route.routeConfig?.path === 'dashboard') {
+      return true;
+    }
+    // Altrimenti vado in dashboard
+    return router.createUrlTree(['/dashboard']);
   }
 
   const codeParam = route.queryParamMap.get('code');

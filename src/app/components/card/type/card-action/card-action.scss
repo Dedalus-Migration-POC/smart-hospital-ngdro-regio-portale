@@ -9,6 +9,10 @@
 a.card-link {
   --#{$prefix}link-color: #16395e;
   text-decoration: none;
+
+  &:focus {
+    outline: 4px solid #000 !important;
+  }
 }
 
 .card-regional-service-title {
