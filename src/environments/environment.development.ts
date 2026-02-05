@@ -1,11 +1,8 @@
 export const environment = {
   discovery: {
-    endpoint:
-      'https://gateway-platform-dc4h-int.apps.cluocptst02.pe-ita.aws/dc4h-int/xdiscovery-service/',
-    a: 'XxBlwmf8sJtwZ7gN', // clientId
-    b: 'regioportale_user', // user
-    c: 'vE14k1', // pwd
-    d: 'nC7AGcd$yAYeBpHh', // secretKey
+    endpoint: 'https://auth.smarthospital.cloud/xdiscovery-service/',
+    a: 'ZYsd9z3YSbGfdmLS', // clientId
+    d: '6RsYh39iqtZS1i1M', // secretKey
     e: '/', // redirect_uri
   },
   dashboard: {
