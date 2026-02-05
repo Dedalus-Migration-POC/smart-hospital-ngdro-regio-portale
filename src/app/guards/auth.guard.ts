@@ -23,7 +23,6 @@ export const authGuard: CanActivateFn = async (
   }
 
   const codeParam = route.queryParamMap.get('code');
-
   if (!codeParam) return router.parseUrl('/home');
 
   // Decripta il "code" ricevuto dal Discovery
