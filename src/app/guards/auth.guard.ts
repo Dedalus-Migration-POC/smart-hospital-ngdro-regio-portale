@@ -12,8 +12,6 @@ export const authGuard: CanActivateFn = async (
   const auth = inject(AuthService);
   const loading = inject(LoadingService);
 
-  console.log('autenticato: ', auth.isAuthenticated());
-
   // Già autenticato: se c'è ?code ripulisco l'URL
   if (auth.isAuthenticated()) {
     // Se sono già in dashboard lascio passare
@@ -25,12 +23,11 @@ export const authGuard: CanActivateFn = async (
   }
 
   const codeParam = route.queryParamMap.get('code');
-  console.log('codeParam: ', codeParam);
+
   if (!codeParam) return router.parseUrl('/home');
 
   // Decripta il "code" ricevuto dal Discovery
   const decrypted = auth.decryptCode(codeParam, environment.discovery.d);
-  console.log('decrypted: ', decrypted);
   if (!decrypted || /failed|errore|invalida/i.test(decrypted)) {
     return router.parseUrl('/home');
   }
