@@ -15,7 +15,7 @@ import {
   catchError,
   delay,
 } from 'rxjs';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 import { AppDescription, ButtonForVertical } from './models';
 import { Card, CardAction } from '../../components/card/card.models';

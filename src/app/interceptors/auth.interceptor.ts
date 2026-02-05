@@ -10,7 +10,7 @@ import {
 import { from, throwError, Observable, defer } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 
 export const authInterceptor: HttpInterceptorFn = (
   req: HttpRequest<any>,

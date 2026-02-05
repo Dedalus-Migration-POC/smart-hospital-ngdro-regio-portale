@@ -3,7 +3,7 @@ import { CanActivateFn, Router, UrlTree } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { LoadingService } from '../services/loading.service';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 
 export const authGuard: CanActivateFn = async (
   route,
