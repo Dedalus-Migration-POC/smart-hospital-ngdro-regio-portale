@@ -66,7 +66,7 @@ export class DashboardService {
       return of(LIST_APPLICATIONS).pipe(delay(2000));
     }
 
-    return this.http.get<AppDescription[]>('/list-applications');
+    return this.http.get<AppDescription[]>('/regio-portale/list-applications');
   }
 
   private getButtonsForVertical(
@@ -82,9 +82,12 @@ export class DashboardService {
       return of(payload).pipe(delay(5000));
     }
 
-    return this.http.post<ButtonForVertical>('/get-buttons-for-vertical', {
-      app_description,
-    });
+    return this.http.post<ButtonForVertical>(
+      '/regio-portale/get-buttons-for-vertical',
+      {
+        app_description,
+      },
+    );
   }
 
   private buildStream(): Observable<DashboardStream> {
