@@ -17,6 +17,7 @@ export class HeaderComponent {
   public router = inject(Router);
 
   isAuthenticated = this.authService.isAuthenticated;
+  isLoggingOut = this.authService.isLoggingOut;
 
   social = input<Signal<MenuLink[]>>();
 

@@ -31,6 +31,7 @@
                     type="button"
                     id="btn-logout"
                     class="btn btn-sm"
+                    [disabled]="isLoggingOut()"
                     [attr.aria-label]="'common.logout' | translate"
                     (click)="logout()"
                   >
@@ -211,3 +212,20 @@
     </div>
   </div>
 </header>
+
+@if (isLoggingOut()) {
+  <div class="logout-overlay">
+    <div
+      class="logout-box"
+      role="status"
+      aria-busy="true"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <div class="logout-spinner" aria-hidden="true"></div>
+      <p class="logout-message mb-0">
+        {{ "common.logoutInProgress" | translate }}
+      </p>
+    </div>
+  </div>
+}

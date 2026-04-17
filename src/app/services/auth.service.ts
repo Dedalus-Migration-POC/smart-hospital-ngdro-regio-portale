@@ -51,6 +51,9 @@ export class AuthService {
     return t ? this.decodeJwtPayload(t) : null;
   });
 
+  /** Per lo spinner  */
+  readonly isLoggingOut = signal(false);
+
   constructor(
     private http: HttpClient,
     private cookies: CookieService,
@@ -86,28 +89,41 @@ export class AuthService {
 
   /** Logout
    * prendo sid
-   * faccio partire il microservizio
-   * pulizia token e redirect subito in home
-   * faccio logout del discovery in background usando un iframe di appoggio cosi l'utente non si rende conto perchè la navigazione "non ha tempi di attese"
+   * logout del microservizio
+   * pulizia token/cookie
+   * logout del discovery
+   * redirect in home
    */
+
   logout(): void {
+    if (this.isLoggingOut()) return;
+
+    this.isLoggingOut.set(true);
+
     const sid = this.getClaims()?.jti || null;
+    const logoutUrl = sid ? this.buildDiscoveryLogoutUrl(sid) : null;
 
-    const micro$ = this.serviceLogout().pipe(
-      map(() => void 0),
-      catchError(() => of(void 0)),
-    );
+    this.serviceLogout()
+      .pipe(catchError(() => of(void 0)))
+      .subscribe(() => {
+        this.clearToken();
 
-    micro$.subscribe();
+        if (logoutUrl) {
+          window.location.assign(logoutUrl);
+          return;
+        }
 
-    // pulizia subito
-    this.clearToken();
+        this.isLoggingOut.set(false);
+        this.router.navigate(['/home'], { replaceUrl: true });
+      });
+  }
 
-    // reindirizzo subito in home
-    this.router.navigate(['/home'], { replaceUrl: true });
-
-    // faccio Logout Discovery in background, non blocca la ux
-    if (sid) this.discoveryLogoutBackground(sid);
+  private buildDiscoveryLogoutUrl(sid: string): string {
+    const base = `${environment.discovery.endpoint.replace(/\/$/, '')}/logout`;
+    const u = new URL(base);
+    u.searchParams.set('sid', sid);
+    u.searchParams.set('post_logout_redirect_uri', `${location.origin}/home`);
+    return u.toString();
   }
 
   // Info utente prese dal token
@@ -320,38 +336,5 @@ export class AuthService {
     return this.http
       .get('/regioportale/logout', { headers, responseType: 'text' as const })
       .pipe(map(() => void 0));
-  }
-
-  // Logout Discovery in background (iframe nascosto): non blocca la UI
-  // iframe va nell'url del logout del Discovery, senza bloccare la UI
-  private discoveryLogoutBackground(sid: string): void {
-    const base = `${environment.discovery.endpoint.replace(/\/$/, '')}/logout`;
-    const u = new URL(base);
-    u.searchParams.set('sid', sid);
-    // dopo il logout Discovery, rientra in /home
-    u.searchParams.set('post_logout_redirect_uri', `${location.origin}/home`);
-
-    const iframe = document.createElement('iframe');
-    iframe.src = u.toString();
-    iframe.hidden = true;
-    iframe.width = '0';
-    iframe.height = '0';
-    iframe.tabIndex = -1 as any;
-    iframe.title = 'logout';
-    iframe.referrerPolicy = 'no-referrer';
-
-    // cleanup immediato quando ha finito (o fallito)
-    const cleanup = () => {
-      iframe.removeEventListener('load', cleanup);
-      iframe.removeEventListener('error', cleanup);
-      iframe.remove();
-    };
-    iframe.addEventListener('load', cleanup);
-    iframe.addEventListener('error', cleanup);
-
-    document.body.appendChild(iframe);
-
-    // fallback: se l'IdP è lento/non risponde, rimuovi comunque dopo 15s
-    setTimeout(cleanup, 15000);
   }
 }

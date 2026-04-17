@@ -88,3 +88,45 @@
     }
   }
 }
+
+.logout-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.92);
+
+  .logout-box {
+    min-width: 280px;
+    max-width: 90vw;
+    padding: 2rem 2.5rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    text-align: center;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+  }
+
+  .logout-spinner {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto 1rem;
+    border: 0.35rem solid #0066cc;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: logout-spin 0.75s linear infinite;
+  }
+
+  .logout-message {
+    font-weight: 600;
+    cursor: default;
+    color: #17324d;
+  }
+
+  @keyframes logout-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

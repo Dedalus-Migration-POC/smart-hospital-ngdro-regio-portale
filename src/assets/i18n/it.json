@@ -8,6 +8,7 @@
       "twitter": "Twitter"
     },
     "loading": "Caricamento",
+    "logoutInProgress": "Disconnessione in corso",
     "error-loading": "Errore nel caricamento dei servizi",
     "retry": "Ricarica",
     "empty": "Al momento non ci sono servizi disponibili.",
