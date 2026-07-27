@@ -1,8 +1,8 @@
 export const environment = {
   discovery: {
-    endpoint: 'https://auth.smarthospital.cloud/xdiscovery-service/',
-    a: '', // clientId
-    d: '', // secretKey
+    endpoint: 'https://ds.er-psp.progetto-sole.it/xdiscovery-service/',
+    a: '0lXnYBTzPxwL6mei', // clientId
+    d: 'ePoJJf0Q4xrNo72R', // secretKey
     e: '/', // redirect_uri
   },
   dashboard: {
