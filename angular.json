@@ -68,6 +68,27 @@
               ],
               "outputHashing": "all"
             },
+            "p4p": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2mb",
+                  "maximumError": "10mb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.p4p.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
             "integration": {
               "budgets": [
                 {
