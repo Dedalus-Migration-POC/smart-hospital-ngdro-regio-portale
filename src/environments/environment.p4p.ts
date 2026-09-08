@@ -1,8 +1,8 @@
 export const environment = {
   discovery: {
-    endpoint: 'https://ds.er-psp.progetto-sole.it/xdiscovery-service/',
-    a: '0lXnYBTzPxwL6mei', // clientId
-    d: 'ePoJJf0Q4xrNo72R', // secretKey
+    endpoint: 'https://awspmelnx000023.pbu.dcaw.dedalus.lan:8443/xdiscovery-service/',
+    a: '2PI9cCEOtzOU0kZ3', // clientId
+    d: 'b$mA8NlPZOPGL8MP', // secretKey
     e: '/', // redirect_uri
   },
   dashboard: {
