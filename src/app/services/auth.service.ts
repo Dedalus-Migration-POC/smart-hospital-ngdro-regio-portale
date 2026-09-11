@@ -334,7 +334,7 @@ export class AuthService {
 
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
     return this.http
-      .get('/regioportale/logout', { headers, responseType: 'text' as const })
+      .get('/regio-portale/logout', { headers, responseType: 'text' as const })
       .pipe(map(() => void 0));
   }
 }
