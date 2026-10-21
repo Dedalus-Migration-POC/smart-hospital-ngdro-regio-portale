@@ -1,5 +1,11 @@
-import { Component, inject, computed } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import {
+  Component,
+  inject,
+  computed,
+  DestroyRef,
+  OnInit,
+} from '@angular/core';
+import { toSignal, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import {
@@ -16,6 +22,7 @@ import { Card, CardContainer } from '../../components/card/card.models';
 import { CardComponent } from '../../components/card/card';
 import { UserProfileComponent } from '../../components/user-profile/user-profile';
 import { SpinnerComponent } from '../../components/spinner/spinner';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,8 +38,16 @@ import { SpinnerComponent } from '../../components/spinner/spinner';
   styleUrl: './dashboard.scss',
   providers: [DashboardService],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   private dashboardService = inject(DashboardService);
+  private authService = inject(AuthService);
+  private destroyRef = inject(DestroyRef);
+
+  ngOnInit(): void {
+    this.dashboardService.logoutRequested$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => this.authService.logout());
+  }
 
   // viewModel dallo stream
   viewModel = toSignal(this.dashboardService.stream$, {

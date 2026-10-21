@@ -14,6 +14,10 @@ import {
   switchMap,
   catchError,
   delay,
+  timer,
+  exhaustMap,
+  filter,
+  take,
 } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -47,6 +51,22 @@ export class DashboardService {
 
   private readonly refresh$ = new Subject<void>();
 
+  private readonly logoutPollingMs = 5000;
+
+  /** Polling di /isLogoutVertical ogni 5s: emette (una volta) quando risponde true */
+  readonly logoutRequested$: Observable<void> = timer(
+    this.logoutPollingMs,
+    this.logoutPollingMs,
+  ).pipe(
+    // se una risposta tarda oltre i 5s non parte una seconda chiamata in parallelo
+    // in caso di errore la risposta vale false e il polling continua
+    exhaustMap(() => this.isLogoutVertical().pipe(catchError(() => of(false)))),
+    filter((res) => res === true),
+    // il polling si ferma alla prima risposta true
+    take(1),
+    map(() => void 0),
+  );
+
   /** Stream viewModel */
   readonly stream$: Observable<DashboardStream> = this.refresh$.pipe(
     startWith(void 0), // prima esecuzione subito
@@ -67,6 +87,14 @@ export class DashboardService {
     }
 
     return this.http.get<AppDescription[]>('/regio-portale/list-applications');
+  }
+
+  private isLogoutVertical(): Observable<boolean> {
+    if (this.IS_DEV) {
+      return of(true);
+    }
+
+    return this.http.get<boolean>('/regio-portale/isLogoutVertical');
   }
 
   private getButtonsForVertical(
